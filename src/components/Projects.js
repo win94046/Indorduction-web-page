@@ -1,4 +1,5 @@
 import React from 'react';
+import AnimatedSection from './AnimatedSection';
 
 const Projects = () => {
   const projects = [
@@ -78,7 +79,7 @@ const Projects = () => {
   ];
 
   return (
-    <section className="section">
+    <AnimatedSection id="projects" className="section">
       <h2>專案經驗</h2>
       {projects.map((project, index) => (
         <div key={index} className="project-card">
@@ -106,7 +107,7 @@ const Projects = () => {
           )}
         </div>
       ))}
-    </section>
+    </AnimatedSection>
   );
 };
 

@@ -1,8 +1,9 @@
 import React from 'react';
+import AnimatedSection from './AnimatedSection';
 
 const Experience = () => {
   return (
-    <section className="section">
+    <AnimatedSection id="experience" className="section">
       <h2>工作經驗</h2>
       
       <div className="project-card">
@@ -50,7 +51,7 @@ const Experience = () => {
           <li>負責管理專案協作，包括進度追蹤、任務分配及開發整合</li>
         </ul>
       </div>
-    </section>
+    </AnimatedSection>
   );
 };
 

@@ -1,8 +1,9 @@
 import React from 'react';
+import AnimatedSection from './AnimatedSection';
 
 const Education = () => {
   return (
-    <section className="section">
+    <AnimatedSection id="education" className="section">
       <h2>教育背景</h2>
       
       <div className="project-card">
@@ -14,7 +15,7 @@ const Education = () => {
         <div className="project-title">國立東華大學應用數學系</div>
         <div className="project-meta">學士 | 2015/9 ~ 2019/9</div>
       </div>
-    </section>
+    </AnimatedSection>
   );
 };
 

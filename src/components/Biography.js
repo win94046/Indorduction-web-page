@@ -1,8 +1,9 @@
 import React from 'react';
+import AnimatedSection from './AnimatedSection';
 
 const Biography = () => {
   return (
-    <section className="section">
+    <AnimatedSection id="biography" className="section">
       <h2>自傳</h2>
       <div style={{lineHeight: '1.8', fontSize: '1.1rem'}}>
         <p style={{marginBottom: '20px'}}>
@@ -21,7 +22,7 @@ const Biography = () => {
           目前，我擔任軟體工程師，專注於 MR/AR 軟體開發和 Android 應用程式開發。我致力於持續學習和創新，旨在整合 AI、AR/VR 和行動應用程式技術，開發更智能和互動的軟體解決方案。
         </p>
       </div>
-    </section>
+    </AnimatedSection>
   );
 };
 
