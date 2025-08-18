@@ -8,6 +8,7 @@ import Education from './components/Education';
 import Biography from './components/Biography';
 import Contact from './components/Contact';
 import AnimatedSection from './components/AnimatedSection';
+import ScrollProgressBar from './components/ScrollProgressBar';
 
 function App() {
   useEffect(() => {
@@ -21,6 +22,7 @@ function App() {
 
   return (
     <div className="App">
+      <ScrollProgressBar />
       <Navigation />
       
       {/* Hero Section */}

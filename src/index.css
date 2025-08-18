@@ -623,6 +623,71 @@ body {
   border-bottom: 3px solid white;
 }
 
+/* Scroll Progress Bar Styles */
+.scroll-progress-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+}
+
+.scroll-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+  transform-origin: left;
+  box-shadow: 0 0 10px rgba(102, 126, 234, 0.5);
+}
+
+.scroll-progress-circle {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 1000;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.scroll-progress-circle:hover {
+  transform: scale(1.1);
+}
+
+.progress-ring {
+  transform: rotate(-90deg);
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+}
+
+.progress-ring-background {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.2);
+  stroke-width: 3;
+}
+
+.progress-ring-progress {
+  fill: none;
+  stroke: url(#progressGradient);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 163.36;
+  stroke-dashoffset: 163.36;
+  transition: stroke-dashoffset 0.1s ease-out;
+}
+
+.progress-percentage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: white;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  pointer-events: none;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .hero-name {
@@ -652,5 +717,36 @@ body {
   
   .soft-skills-grid {
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+  
+  .scroll-progress-circle {
+    bottom: 20px;
+    right: 20px;
+    transform: scale(0.9);
+  }
+  
+  .scroll-progress-circle:hover {
+    transform: scale(1);
+  }
+  
+  /* 移動端浮動導航調整 */
+  .floating-nav {
+    right: 1rem;
+    transform: translateY(-50%) scale(0.9);
+  }
+  
+  .floating-nav-item {
+    padding: 0.5rem;
+  }
+  
+  .floating-nav-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1rem;
+  }
+  
+  .floating-nav-label {
+    font-size: 0.8rem;
+    margin-left: 0.5rem;
   }
 }

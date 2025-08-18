@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation Test</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 200vh; /* 確保有足夠內容可滾動 */
+        }
+        
+        .test-content {
+            padding: 2rem;
+            color: white;
+            text-align: center;
+        }
+        
+        .section {
+            padding: 4rem 2rem;
+            margin: 2rem 0;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 1rem;
+        }
+        
+        /* 簡化浮動導航樣式 */
+        .floating-nav {
+            position: fixed;
+            right: 1.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1001;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(16px);
+            border-radius: 1rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            width: 60px;
+            padding: 8px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .floating-nav.visible {
+            opacity: 1;
+        }
+        
+        .nav-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 2.75rem;
+            height: 2.75rem;
+            margin: 0.25rem 0;
+            border-radius: 0.75rem;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            font-size: 1.125rem;
+            transition: all 0.2s ease;
+        }
+        
+        .nav-item:hover {
+            background: rgba(243, 244, 246, 0.8);
+            transform: scale(1.05);
+        }
+        
+        .nav-item.active {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .scroll-indicator {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            color: #333;
+            font-weight: bold;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+    <div class="scroll-indicator" id="scrollIndicator">滾動位置: 0px</div>
+    
+    <div class="floating-nav" id="floatingNav">
+        <button class="nav-item active" data-target="section1">👤</button>
+        <button class="nav-item" data-target="section2">💻</button>
+        <button class="nav-item" data-target="section3">💼</button>
+        <button class="nav-item" data-target="section4">🚀</button>
+        <button class="nav-item" data-target="section5">🎓</button>
+        <button class="nav-item" data-target="section6">📝</button>
+        <button class="nav-item" data-target="section7">📞</button>
+    </div>
+    
+    <div class="test-content">
+        <h1>簡化浮動導航測試頁面</h1>
+        <p>請向下滾動 50px 以上來測試簡化版浮動導航的顯示效果</p>
+        <p>新版本移除了hover展開功能，直接顯示所有圖標按鈕</p>
+        
+        <div class="section" id="section1">
+            <h2>👤 個人資料</h2>
+            <p>這是個人資料區段</p>
+        </div>
+        
+        <div class="section" id="section2">
+            <h2>💻 專長技能</h2>
+            <p>這是專長技能區段</p>
+        </div>
+        
+        <div class="section" id="section3">
+            <h2>💼 工作經驗</h2>
+            <p>這是工作經驗區段</p>
+        </div>
+        
+        <div class="section" id="section4">
+            <h2>🚀 專案作品</h2>
+            <p>這是專案作品區段</p>
+        </div>
+        
+        <div class="section" id="section5">
+            <h2>🎓 學歷</h2>
+            <p>這是學歷區段</p>
+        </div>
+        
+        <div class="section" id="section6">
+            <h2>📝 個人簡介</h2>
+            <p>這是個人簡介區段</p>
+        </div>
+        
+        <div class="section" id="section7">
+            <h2>📞 聯絡方式</h2>
+            <p>這是聯絡方式區段</p>
+        </div>
+    </div>
+
+    <script>
+        const floatingNav = document.getElementById('floatingNav');
+        const scrollIndicator = document.getElementById('scrollIndicator');
+        const navItems = document.querySelectorAll('.nav-item');
+        
+        // 滾動監聽
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+            
+            // 更新滾動指示器
+            scrollIndicator.textContent = `滾動位置: ${scrollY}px`;
+            
+            // 顯示/隱藏導航（50px 閾值）
+            if (scrollY > 50) {
+                floatingNav.classList.add('visible');
+                console.log('Navigation visible - scrollY:', scrollY);
+            } else {
+                floatingNav.classList.remove('visible');
+                console.log('Navigation hidden - scrollY:', scrollY);
+            }
+            
+            // 更新活動區段
+            const sections = Array.from(document.querySelectorAll('.section'));
+            const currentSection = sections.find(section => {
+                const rect = section.getBoundingClientRect();
+                return rect.top <= 200 && rect.bottom >= 200;
+            });
+            
+            if (currentSection) {
+                // 移除所有活動狀態
+                navItems.forEach(item => item.classList.remove('active'));
+                
+                // 添加對應的活動狀態
+                const targetId = currentSection.id;
+                const targetNav = document.querySelector(`[data-target="${targetId}"]`);
+                if (targetNav) {
+                    targetNav.classList.add('active');
+                }
+            }
+        });
+        
+        // 導航點擊事件
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const targetId = item.getAttribute('data-target');
+                const targetSection = document.getElementById(targetId);
+                if (targetSection) {
+                    targetSection.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        console.log('Navigation test page loaded');
+    </script>
+</body>
+</html>
