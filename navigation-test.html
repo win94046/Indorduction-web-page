@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Navigation Test</title>
+    <title>Navigation Test - Material 3 Icons</title>
+    <!-- Material Symbols Font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <style>
         body {
             margin: 0;
@@ -61,6 +63,10 @@
             cursor: pointer;
             font-size: 1.125rem;
             transition: all 0.2s ease;
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            line-height: 1;
         }
         
         .nav-item:hover {
@@ -91,53 +97,53 @@
     <div class="scroll-indicator" id="scrollIndicator">滾動位置: 0px</div>
     
     <div class="floating-nav" id="floatingNav">
-        <button class="nav-item active" data-target="section1">👤</button>
-        <button class="nav-item" data-target="section2">💻</button>
-        <button class="nav-item" data-target="section3">💼</button>
-        <button class="nav-item" data-target="section4">🚀</button>
-        <button class="nav-item" data-target="section5">🎓</button>
-        <button class="nav-item" data-target="section6">📝</button>
-        <button class="nav-item" data-target="section7">📞</button>
+        <button class="nav-item active" data-target="section1">person</button>
+        <button class="nav-item" data-target="section2">engineering</button>
+        <button class="nav-item" data-target="section3">work</button>
+        <button class="nav-item" data-target="section4">rocket_launch</button>
+        <button class="nav-item" data-target="section5">school</button>
+        <button class="nav-item" data-target="section6">article</button>
+        <button class="nav-item" data-target="section7">contact_mail</button>
     </div>
     
     <div class="test-content">
-        <h1>簡化浮動導航測試頁面</h1>
-        <p>請向下滾動 50px 以上來測試簡化版浮動導航的顯示效果</p>
-        <p>新版本移除了hover展開功能，直接顯示所有圖標按鈕</p>
+        <h1>Material 3 圖標導航測試頁面</h1>
+        <p>請向下滾動 50px 以上來測試使用 Material 3 圖標的浮動導航</p>
+        <p>現在使用Material Symbols字體，提供更一致的設計體驗</p>
         
         <div class="section" id="section1">
-            <h2>👤 個人資料</h2>
-            <p>這是個人資料區段</p>
+            <h2><span style="font-family: 'Material Symbols Outlined';">person</span> 個人資料</h2>
+            <p>這是個人資料區段 - 使用 Material Symbol: person</p>
         </div>
         
         <div class="section" id="section2">
-            <h2>💻 專長技能</h2>
-            <p>這是專長技能區段</p>
+            <h2><span style="font-family: 'Material Symbols Outlined';">engineering</span> 專長技能</h2>
+            <p>這是專長技能區段 - 使用 Material Symbol: engineering</p>
         </div>
         
         <div class="section" id="section3">
-            <h2>💼 工作經驗</h2>
-            <p>這是工作經驗區段</p>
+            <h2><span style="font-family: 'Material Symbols Outlined';">work</span> 工作經驗</h2>
+            <p>這是工作經驗區段 - 使用 Material Symbol: work</p>
         </div>
         
         <div class="section" id="section4">
-            <h2>🚀 專案作品</h2>
-            <p>這是專案作品區段</p>
+            <h2><span style="font-family: 'Material Symbols Outlined';">rocket_launch</span> 專案作品</h2>
+            <p>這是專案作品區段 - 使用 Material Symbol: rocket_launch</p>
         </div>
         
         <div class="section" id="section5">
-            <h2>🎓 學歷</h2>
-            <p>這是學歷區段</p>
+            <h2><span style="font-family: 'Material Symbols Outlined';">school</span> 學歷</h2>
+            <p>這是學歷區段 - 使用 Material Symbol: school</p>
         </div>
         
         <div class="section" id="section6">
-            <h2>📝 個人簡介</h2>
-            <p>這是個人簡介區段</p>
+            <h2><span style="font-family: 'Material Symbols Outlined';">article</span> 個人簡介</h2>
+            <p>這是個人簡介區段 - 使用 Material Symbol: article</p>
         </div>
         
         <div class="section" id="section7">
-            <h2>📞 聯絡方式</h2>
-            <p>這是聯絡方式區段</p>
+            <h2><span style="font-family: 'Material Symbols Outlined';">contact_mail</span> 聯絡方式</h2>
+            <p>這是聯絡方式區段 - 使用 Material Symbol: contact_mail</p>
         </div>
     </div>
 

@@ -1,18 +1,19 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import MaterialIcon, { MaterialIcons } from './MaterialIcon';
 
 const Navigation = () => {
   const [activeSection, setActiveSection] = useState('personal');
   const [isVisible, setIsVisible] = useState(false);
 
   const navItems = useMemo(() => [
-    { id: 'personal', label: '個人資料', icon: '👤' },
-    { id: 'skills', label: '專長技能', icon: '💻' },
-    { id: 'experience', label: '工作經驗', icon: '💼' },
-    { id: 'projects', label: '專案作品', icon: '🚀' },
-    { id: 'education', label: '學歷', icon: '🎓' },
-    { id: 'biography', label: '個人簡介', icon: '📝' },
-    { id: 'contact', label: '聯絡方式', icon: '📞' }
+    { id: 'personal', label: '個人資料', icon: MaterialIcons.person },
+    { id: 'skills', label: '專長技能', icon: MaterialIcons.engineering },
+    { id: 'experience', label: '工作經驗', icon: MaterialIcons.work },
+    { id: 'projects', label: '專案作品', icon: MaterialIcons.rocket_launch },
+    { id: 'education', label: '學歷', icon: MaterialIcons.school },
+    { id: 'biography', label: '個人簡介', icon: MaterialIcons.article },
+    { id: 'contact', label: '聯絡方式', icon: MaterialIcons.contact_mail }
   ], []);
 
   useEffect(() => {
@@ -104,7 +105,14 @@ const Navigation = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
                 >
-                  <span className="text-lg">{item.icon}</span>
+                  <MaterialIcon 
+                    icon={item.icon}
+                    size={20}
+                    weight={activeSection === item.id ? 600 : 400}
+                    fill={activeSection === item.id ? 1 : 0}
+                    ariaLabel={item.label}
+                    color="inherit"
+                  />
                   
                   {/* 活動指示器 */}
                   {activeSection === item.id && (
