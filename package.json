@@ -2,6 +2,7 @@
   "name": "personal-portfolio",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://win94046.github.io/Indorduction-web-page",
   "dependencies": {
     "framer-motion": "^12.23.12",
     "lucide-react": "^0.539.0",
